@@ -1,5 +1,4 @@
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
+import 'package:web/web.dart' as web;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../app.dart';
@@ -23,7 +22,8 @@ class _CartPageState extends State<CartPage> {
     for (var item in cartItems) {
       message.writeln('${item.quantity}x ${item.product.name}');
       message.writeln(
-          'Preço Unitário: R\$ ${item.product.price.toStringAsFixed(2)}');
+        'Preço Unitário: R\$ ${item.product.price.toStringAsFixed(2)}',
+      );
 
       final optionalsGrouped = item.optionalsWithQuantity;
       if (optionalsGrouped.isNotEmpty) {
@@ -31,7 +31,8 @@ class _CartPageState extends State<CartPage> {
         optionalsGrouped.forEach((optional, qty) {
           final totalOptionalPrice = optional.price * qty;
           message.writeln(
-              '  ${qty}x ${optional.name} - R\$ ${totalOptionalPrice.toStringAsFixed(2)}');
+            '  ${qty}x ${optional.name} - R\$ ${totalOptionalPrice.toStringAsFixed(2)}',
+          );
         });
       }
 
@@ -40,7 +41,8 @@ class _CartPageState extends State<CartPage> {
       }
 
       message.writeln(
-          'Total do Item: R\$ ${item.totalItemPrice.toStringAsFixed(2)}');
+        'Total do Item: R\$ ${item.totalItemPrice.toStringAsFixed(2)}',
+      );
       message.writeln();
     }
 
@@ -53,10 +55,14 @@ class _CartPageState extends State<CartPage> {
     required double totalCartValue,
   }) {
     String phoneNumber = '5567991742130';
-    String message = Uri.encodeComponent(generateOrderMessage(
-        cartItems: cartItems, totalCartValue: totalCartValue));
+    String message = Uri.encodeComponent(
+      generateOrderMessage(
+        cartItems: cartItems,
+        totalCartValue: totalCartValue,
+      ),
+    );
     String url = 'https://wa.me/$phoneNumber?text=$message';
-    html.window.open(url, '_blank');
+    web.window.open(url, '_blank');
   }
 
   @override
@@ -65,12 +71,12 @@ class _CartPageState extends State<CartPage> {
     return BlocBuilder<CartCubit, List<CartItem>>(
       builder: (context, cartItems) {
         double totalCartValue = cartItems.fold(
-            0, (total, item) => total + (item.product.price * item.quantity));
+          0,
+          (total, item) => total + (item.product.price * item.quantity),
+        );
 
         return Scaffold(
-          appBar: AppBar(
-            title: const Text('Sacola'),
-          ),
+          appBar: AppBar(title: const Text('Sacola')),
           body: Column(
             children: [
               Expanded(
@@ -83,25 +89,29 @@ class _CartPageState extends State<CartPage> {
 
                     return Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 32, vertical: 16),
+                        horizontal: 32,
+                        vertical: 16,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Cabeçalho do item
                           Row(
                             children: [
                               Expanded(
                                 child: Text(
                                   '${item.quantity}x ${item.product.name}',
                                   style: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                               Text(
                                 'Total: R\$ ${totalItemPrice.toStringAsFixed(2)}',
                                 style: const TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               IconButton(
                                 onPressed: () => cartCubit.removeFromCart(item),
@@ -113,7 +123,8 @@ class _CartPageState extends State<CartPage> {
                             ],
                           ),
                           Text(
-                              'Preço Unitário: R\$ ${item.product.price.toStringAsFixed(2)}'),
+                            'Preço Unitário: R\$ ${item.product.price.toStringAsFixed(2)}',
+                          ),
                           if (optionalsGrouped.isNotEmpty)
                             const Padding(
                               padding: EdgeInsets.only(top: 8.0),
@@ -124,14 +135,15 @@ class _CartPageState extends State<CartPage> {
                             final qty = entry.value;
                             final totalOptionalPrice = optional.price * qty;
                             return Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 16.0, top: 4.0),
+                              padding: const EdgeInsets.only(
+                                left: 16.0,
+                                top: 4.0,
+                              ),
                               child: Text(
                                 '${qty}x ${optional.name} - R\$ ${totalOptionalPrice.toStringAsFixed(2)}',
                               ),
                             );
                           }),
-                          // Observações, se houver
                           if (item.notes.isNotEmpty)
                             Padding(
                               padding: const EdgeInsets.only(top: 8.0),
@@ -161,16 +173,18 @@ class _CartPageState extends State<CartPage> {
                       height: 56,
                       width: 200,
                       child: FilledButton(
-                        onPressed: cartItems.isNotEmpty
-                            ? () {
-                                sendOrder(
+                        onPressed:
+                            cartItems.isNotEmpty
+                                ? () {
+                                  sendOrder(
                                     cartItems: cartItems,
-                                    totalCartValue: totalCartValue);
-                              }
-                            : null,
+                                    totalCartValue: totalCartValue,
+                                  );
+                                }
+                                : null,
                         child: const Text('Enviar pedido'),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
