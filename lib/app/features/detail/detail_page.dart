@@ -112,7 +112,7 @@ class _$DetailPageState extends State<DetailPage> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        _product.sideDishes,
+                        _product.ingredients,
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       const SizedBox(height: 16),

@@ -25,7 +25,7 @@ class HomeProductItem extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -35,12 +35,10 @@ class HomeProductItem extends StatelessWidget {
                           style: context.textTheme.titleMedium,
                         ),
                         Expanded(
-                          child: Center(
-                            child: Text(
-                              product.description,
-                              style: context.textTheme.bodySmall
-                                  ?.copyWith(color: AppColors.gray),
-                            ),
+                          child: Text(
+                            product.ingredients,
+                            style: context.textTheme.bodySmall
+                                ?.copyWith(color: AppColors.gray),
                           ),
                         ),
                       ],
@@ -48,8 +46,8 @@ class HomeProductItem extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'R\$ ${product.price.toStringAsFixed(2)}',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  product.price.formattedCurrencyBR,
+                  style: context.textTheme.headlineSmall,
                 )
               ],
             ),

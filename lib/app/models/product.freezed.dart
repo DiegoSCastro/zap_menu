@@ -22,7 +22,7 @@ Product _$ProductFromJson(Map<String, dynamic> json) {
 mixin _$Product {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String get sideDishes => throw _privateConstructorUsedError;
+  String get ingredients => throw _privateConstructorUsedError;
   String get imagePath => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   List<OptionalItem> get optionals => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $ProductCopyWith<$Res> {
   $Res call(
       {String name,
       String description,
-      String sideDishes,
+      String ingredients,
       String imagePath,
       double price,
       List<OptionalItem> optionals});
@@ -67,7 +67,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
   $Res call({
     Object? name = null,
     Object? description = null,
-    Object? sideDishes = null,
+    Object? ingredients = null,
     Object? imagePath = null,
     Object? price = null,
     Object? optionals = null,
@@ -81,9 +81,9 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      sideDishes: null == sideDishes
-          ? _value.sideDishes
-          : sideDishes // ignore: cast_nullable_to_non_nullable
+      ingredients: null == ingredients
+          ? _value.ingredients
+          : ingredients // ignore: cast_nullable_to_non_nullable
               as String,
       imagePath: null == imagePath
           ? _value.imagePath
@@ -111,7 +111,7 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
   $Res call(
       {String name,
       String description,
-      String sideDishes,
+      String ingredients,
       String imagePath,
       double price,
       List<OptionalItem> optionals});
@@ -132,7 +132,7 @@ class __$$ProductImplCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? description = null,
-    Object? sideDishes = null,
+    Object? ingredients = null,
     Object? imagePath = null,
     Object? price = null,
     Object? optionals = null,
@@ -146,9 +146,9 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      sideDishes: null == sideDishes
-          ? _value.sideDishes
-          : sideDishes // ignore: cast_nullable_to_non_nullable
+      ingredients: null == ingredients
+          ? _value.ingredients
+          : ingredients // ignore: cast_nullable_to_non_nullable
               as String,
       imagePath: null == imagePath
           ? _value.imagePath
@@ -172,7 +172,7 @@ class _$ProductImpl extends _Product {
   const _$ProductImpl(
       {this.name = '',
       this.description = '',
-      this.sideDishes = '',
+      this.ingredients = '',
       this.imagePath = '',
       this.price = 0.0,
       final List<OptionalItem> optionals = const []})
@@ -190,7 +190,7 @@ class _$ProductImpl extends _Product {
   final String description;
   @override
   @JsonKey()
-  final String sideDishes;
+  final String ingredients;
   @override
   @JsonKey()
   final String imagePath;
@@ -208,7 +208,7 @@ class _$ProductImpl extends _Product {
 
   @override
   String toString() {
-    return 'Product(name: $name, description: $description, sideDishes: $sideDishes, imagePath: $imagePath, price: $price, optionals: $optionals)';
+    return 'Product(name: $name, description: $description, ingredients: $ingredients, imagePath: $imagePath, price: $price, optionals: $optionals)';
   }
 
   @override
@@ -219,8 +219,8 @@ class _$ProductImpl extends _Product {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.sideDishes, sideDishes) ||
-                other.sideDishes == sideDishes) &&
+            (identical(other.ingredients, ingredients) ||
+                other.ingredients == ingredients) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath) &&
             (identical(other.price, price) || other.price == price) &&
@@ -230,7 +230,7 @@ class _$ProductImpl extends _Product {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, name, description, sideDishes,
+  int get hashCode => Object.hash(runtimeType, name, description, ingredients,
       imagePath, price, const DeepCollectionEquality().hash(_optionals));
 
   /// Create a copy of Product
@@ -253,7 +253,7 @@ abstract class _Product extends Product {
   const factory _Product(
       {final String name,
       final String description,
-      final String sideDishes,
+      final String ingredients,
       final String imagePath,
       final double price,
       final List<OptionalItem> optionals}) = _$ProductImpl;
@@ -266,7 +266,7 @@ abstract class _Product extends Product {
   @override
   String get description;
   @override
-  String get sideDishes;
+  String get ingredients;
   @override
   String get imagePath;
   @override

@@ -12,8 +12,8 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(
-            AppAssets.logo,
-            height: 80,
+            AppAssets.msDogLogo,
+            height: 120,
           ),
           Expanded(
             child: Text(

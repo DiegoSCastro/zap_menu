@@ -10,7 +10,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
     _$ProductImpl(
       name: json['name'] as String? ?? '',
       description: json['description'] as String? ?? '',
-      sideDishes: json['sideDishes'] as String? ?? '',
+      ingredients: json['ingredients'] as String? ?? '',
       imagePath: json['imagePath'] as String? ?? '',
       price: (json['price'] as num?)?.toDouble() ?? 0.0,
       optionals: (json['optionals'] as List<dynamic>?)
@@ -23,7 +23,7 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
-      'sideDishes': instance.sideDishes,
+      'ingredients': instance.ingredients,
       'imagePath': instance.imagePath,
       'price': instance.price,
       'optionals': instance.optionals,
