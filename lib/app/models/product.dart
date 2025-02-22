@@ -100,7 +100,7 @@ class Product with _$Product {
       name: 'Jantinha',
       price: 15.0,
       ingredients:
-          'Espetinho de carne,  mandioca e farofa. (Adicionar observações se quiser trocar por espetinho de frango)',
+          'Espetinho de carne, arroz, mandioca e farofa. (Adicionar observações se quiser trocar por espetinho de frango)',
       description: 'Jantinha simples, uma refeição completa e saborosa.',
       imagePath: 'assets/jantinha.jpg',
     ),
