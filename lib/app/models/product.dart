@@ -29,7 +29,8 @@ class Product with _$Product {
       price: 12.0,
       ingredients:
           'Pão 17 cm, salsicha, molho de tomate, maionese, milho, batata palha.',
-      description: 'Hot Dog Simples, mas delicioso!',
+      description:
+          'Clássico e saboroso! Salsicha suculenta com molho especial, milho e batata palha crocante.',
       imagePath: 'assets/hotdog.jpeg',
     ),
     Product(
@@ -37,7 +38,8 @@ class Product with _$Product {
       price: 15.0,
       ingredients:
           'Pão 17 cm, 2 salsichas, molho de tomate, maionese, milho, batata palha.',
-      description: 'Hot Dog Simples, mas delicioso!',
+      description:
+          'O dobro de sabor! Duas salsichas com molho cremoso, milho e batata palha crocante.',
       imagePath: 'assets/hotdog.jpeg',
     ),
     Product(
@@ -45,7 +47,8 @@ class Product with _$Product {
       price: 18.0,
       ingredients:
           'Pão 17 cm, 3 salsichas, molho de tomate, maionese, milho, batata palha.',
-      description: 'Hot Dog Simples, mas delicioso!',
+      description:
+          'Para os fãs de hot dog! Três salsichas com muito molho, milho e batata palha crocante.',
       imagePath: 'assets/hotdog.jpeg',
     ),
     Product(
@@ -53,7 +56,8 @@ class Product with _$Product {
       price: 23.0,
       ingredients:
           'Pão 17 cm, 2 salsichas, molho de tomate, maionese, purê de batata, vinagrete, milho, ervilha, batata palha.',
-      description: 'Hot Dog Simples, mas delicioso!',
+      description:
+          'Inspirado no clássico paulista! Hot dog com purê cremoso, vinagrete e batata palha crocante.',
       imagePath: 'assets/hotdog.jpeg',
     ),
     Product(
@@ -61,7 +65,8 @@ class Product with _$Product {
       price: 24.0,
       ingredients:
           'Pão 17 cm, 2 salsichas, molho de tomate, maionese, ervilha, parmesão, batata palha.',
-      description: 'Hot Dog Simples, mas delicioso!',
+      description:
+          'Sabor do Sul! Duas salsichas com queijo parmesão derretido, ervilha e batata palha crocante.',
       imagePath: 'assets/hotdog.jpeg',
     ),
     Product(
@@ -69,7 +74,8 @@ class Product with _$Product {
       price: 24.0,
       ingredients:
           'Pão 17 cm, 2 salsichas, molho de tomate, maionese, calabresa picada, milho, batata palha.',
-      description: 'Hot Dog Simples, mas delicioso!',
+      description:
+          'Uma explosão de sabor! Salsichas com calabresa picante, milho e batata palha crocante.',
       imagePath: 'assets/hotdog.jpeg',
     ),
     Product(
@@ -77,7 +83,8 @@ class Product with _$Product {
       price: 25.0,
       ingredients:
           'Pão 17 cm, 2 salsichas, molho de tomate, maionese, requeijão cremoso, milho, batata palha.',
-      description: 'Hot Dog Simples, mas delicioso!',
+      description:
+          'Extremamente cremoso! Hot dog com requeijão, milho e batata palha crocante.',
       imagePath: 'assets/hotdog.jpeg',
     ),
     Product(
@@ -85,7 +92,8 @@ class Product with _$Product {
       price: 25.0,
       ingredients:
           'Pão 17 cm, 2 salsichas, molho de tomate, maionese, mussarela, queijo caipira, milho, batata palha.',
-      description: 'Hot Dog Simples, mas delicioso!',
+      description:
+          'Sabor de Minas! Queijo caipira e mussarela derretida fazem desse hot dog irresistível.',
       imagePath: 'assets/hotdog.jpeg',
     ),
     Product(
@@ -93,7 +101,8 @@ class Product with _$Product {
       price: 25.0,
       ingredients:
           'Pão 17 cm, 2 salsichas, molho de tomate, maionese, mussarela, bacon crocante, milho, batata palha.',
-      description: 'Hot Dog Simples, mas delicioso!',
+      description:
+          'Para os amantes de bacon! Mussarela derretida e bacon crocante deixam esse hot dog especial.',
       imagePath: 'assets/hotdog.jpeg',
     ),
     Product(
@@ -101,37 +110,40 @@ class Product with _$Product {
       price: 15.0,
       ingredients:
           'Espetinho de carne, arroz, mandioca e farofa. (Adicionar observações se quiser trocar por espetinho de frango)',
-      description: 'Jantinha simples, uma refeição completa e saborosa.',
+      description:
+          'Uma refeição completa! Espetinho suculento com arroz soltinho, mandioca e farofa crocante.',
       imagePath: 'assets/jantinha.jpg',
     ),
     Product(
       name: 'Jantinha Completa',
       price: 17.0,
       ingredients:
-          'Espetinho de carne, arroz, mandioca, arroz, vinagrete e farofa. (Adicionar observações se quiser trocar por espetinho de frango)',
-      description: 'Jantinha simples, uma refeição completa e saborosa.',
+          'Espetinho de carne, arroz, mandioca, vinagrete e farofa. (Adicionar observações se quiser trocar por espetinho de frango)',
+      description:
+          'Jantinha reforçada! Espetinho delicioso com arroz, mandioca, vinagrete e farofa temperada.',
       imagePath: 'assets/jantinha.jpg',
     ),
     Product(
       name: 'Jantinha Completa 2.0',
       price: 22.0,
       ingredients:
-          '2 Espetinho de carne, arroz, mandioca, arroz, vinagrete e farofa. (Adicionar observações se quiser trocar por espetinho de frango)',
-      description: 'Jantinha simples, uma refeição completa e saborosa.',
+          '2 Espetinhos de carne, arroz, mandioca, vinagrete e farofa. (Adicionar observações se quiser trocar por espetinho de frango)',
+      description:
+          'Para quem tem fome! Dois espetinhos suculentos com acompanhamentos deliciosos.',
       imagePath: 'assets/jantinha.jpg',
     ),
     Product(
       name: 'Espetinho Carne',
       price: 8.0,
       ingredients: 'Espetinho de carne bovina',
-      description: 'Espeto delicioso',
+      description: 'Carne macia e suculenta no espeto, assada na brasa.',
       imagePath: 'assets/carne.jpg',
     ),
     Product(
       name: 'Espetinho Frango',
       price: 8.0,
       ingredients: 'Espetinho de frango',
-      description: 'Espeto delicioso',
+      description: 'Frango temperado e assado na brasa, macio e saboroso.',
       imagePath: 'assets/frango.jpg',
     ),
   ];
