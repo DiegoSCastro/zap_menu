@@ -78643,7 +78643,7 @@ $1(a){var s=null,r=a.a,q=a.b,p=r.gyg().ag(0,q)
 return new A.bQ(B.C1,A.cd(A.o(q)+"x "+A.o(r.gRY(r))+" - R$ "+A.o(p.a2(0,2)),s,s,s,s,s,s),s)},
 $S:473}
 A.aen.prototype={
-$0(){var s=A.E1(2,this.a.TA(this.b,this.c),B.a8,!1),r=window.open("https://wa.me/556792873913?text="+s,"_blank")
+$0(){var s=A.E1(2,this.a.TA(this.b,this.c),B.a8,!1),r=window.open("https://wa.me/5567991742130?text="+s,"_blank")
 A.aF6(r)},
 $S:0}
 A.nz.prototype={

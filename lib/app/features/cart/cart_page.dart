@@ -52,7 +52,7 @@ class _CartPageState extends State<CartPage> {
     required List<CartItem> cartItems,
     required double totalCartValue,
   }) {
-    String phoneNumber = '556792873913';
+    String phoneNumber = '5567991742130';
     String message = Uri.encodeComponent(generateOrderMessage(
         cartItems: cartItems, totalCartValue: totalCartValue));
     String url = 'https://wa.me/$phoneNumber?text=$message';
