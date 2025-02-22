@@ -13,6 +13,7 @@ class CartItem with _$CartItem {
     @Default(Product()) Product product,
     @Default('') String notes,
     @Default(1) int quantity,
+    @Default([]) List<OptionalItem> selectedOptionals,
   }) = _CartItem;
   const CartItem._();
 

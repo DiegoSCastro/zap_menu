@@ -23,6 +23,8 @@ mixin _$CartItem {
   Product get product => throw _privateConstructorUsedError;
   String get notes => throw _privateConstructorUsedError;
   int get quantity => throw _privateConstructorUsedError;
+  List<OptionalItem> get selectedOptionals =>
+      throw _privateConstructorUsedError;
 
   /// Serializes this CartItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +41,11 @@ abstract class $CartItemCopyWith<$Res> {
   factory $CartItemCopyWith(CartItem value, $Res Function(CartItem) then) =
       _$CartItemCopyWithImpl<$Res, CartItem>;
   @useResult
-  $Res call({Product product, String notes, int quantity});
+  $Res call(
+      {Product product,
+      String notes,
+      int quantity,
+      List<OptionalItem> selectedOptionals});
 
   $ProductCopyWith<$Res> get product;
 }
@@ -62,6 +68,7 @@ class _$CartItemCopyWithImpl<$Res, $Val extends CartItem>
     Object? product = null,
     Object? notes = null,
     Object? quantity = null,
+    Object? selectedOptionals = null,
   }) {
     return _then(_value.copyWith(
       product: null == product
@@ -76,6 +83,10 @@ class _$CartItemCopyWithImpl<$Res, $Val extends CartItem>
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int,
+      selectedOptionals: null == selectedOptionals
+          ? _value.selectedOptionals
+          : selectedOptionals // ignore: cast_nullable_to_non_nullable
+              as List<OptionalItem>,
     ) as $Val);
   }
 
@@ -98,7 +109,11 @@ abstract class _$$CartItemImplCopyWith<$Res>
       __$$CartItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Product product, String notes, int quantity});
+  $Res call(
+      {Product product,
+      String notes,
+      int quantity,
+      List<OptionalItem> selectedOptionals});
 
   @override
   $ProductCopyWith<$Res> get product;
@@ -120,6 +135,7 @@ class __$$CartItemImplCopyWithImpl<$Res>
     Object? product = null,
     Object? notes = null,
     Object? quantity = null,
+    Object? selectedOptionals = null,
   }) {
     return _then(_$CartItemImpl(
       product: null == product
@@ -134,6 +150,10 @@ class __$$CartItemImplCopyWithImpl<$Res>
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int,
+      selectedOptionals: null == selectedOptionals
+          ? _value._selectedOptionals
+          : selectedOptionals // ignore: cast_nullable_to_non_nullable
+              as List<OptionalItem>,
     ));
   }
 }
@@ -142,8 +162,12 @@ class __$$CartItemImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CartItemImpl extends _CartItem {
   const _$CartItemImpl(
-      {this.product = const Product(), this.notes = '', this.quantity = 1})
-      : super._();
+      {this.product = const Product(),
+      this.notes = '',
+      this.quantity = 1,
+      final List<OptionalItem> selectedOptionals = const []})
+      : _selectedOptionals = selectedOptionals,
+        super._();
 
   factory _$CartItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$CartItemImplFromJson(json);
@@ -157,10 +181,19 @@ class _$CartItemImpl extends _CartItem {
   @override
   @JsonKey()
   final int quantity;
+  final List<OptionalItem> _selectedOptionals;
+  @override
+  @JsonKey()
+  List<OptionalItem> get selectedOptionals {
+    if (_selectedOptionals is EqualUnmodifiableListView)
+      return _selectedOptionals;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedOptionals);
+  }
 
   @override
   String toString() {
-    return 'CartItem(product: $product, notes: $notes, quantity: $quantity)';
+    return 'CartItem(product: $product, notes: $notes, quantity: $quantity, selectedOptionals: $selectedOptionals)';
   }
 
   @override
@@ -171,12 +204,15 @@ class _$CartItemImpl extends _CartItem {
             (identical(other.product, product) || other.product == product) &&
             (identical(other.notes, notes) || other.notes == notes) &&
             (identical(other.quantity, quantity) ||
-                other.quantity == quantity));
+                other.quantity == quantity) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedOptionals, _selectedOptionals));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, product, notes, quantity);
+  int get hashCode => Object.hash(runtimeType, product, notes, quantity,
+      const DeepCollectionEquality().hash(_selectedOptionals));
 
   /// Create a copy of CartItem
   /// with the given fields replaced by the non-null parameter values.
@@ -198,7 +234,8 @@ abstract class _CartItem extends CartItem {
   const factory _CartItem(
       {final Product product,
       final String notes,
-      final int quantity}) = _$CartItemImpl;
+      final int quantity,
+      final List<OptionalItem> selectedOptionals}) = _$CartItemImpl;
   const _CartItem._() : super._();
 
   factory _CartItem.fromJson(Map<String, dynamic> json) =
@@ -210,6 +247,8 @@ abstract class _CartItem extends CartItem {
   String get notes;
   @override
   int get quantity;
+  @override
+  List<OptionalItem> get selectedOptionals;
 
   /// Create a copy of CartItem
   /// with the given fields replaced by the non-null parameter values.

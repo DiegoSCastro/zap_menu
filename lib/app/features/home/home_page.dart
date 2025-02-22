@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zap_menu/app/routes/routes.dart';
 
 import '../../app.dart';
@@ -14,26 +13,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   static const _products = Product.products;
 
-  late final CartCubit _cartCubit;
+  // late final CartCubit _cartCubit;
 
   @override
   void initState() {
-    _cartCubit = context.read<CartCubit>();
+    // _cartCubit = context.read<CartCubit>();
     super.initState();
-  }
-
-  void _onTapItem(Product product) {
-    _cartCubit.addToCart(
-      CartItem(product: product, notes: ''),
-    );
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        behavior: SnackBarBehavior.floating,
-        content: Text('${product.name} adicionado a sacola'),
-        duration: const Duration(seconds: 2),
-      ),
-    );
   }
 
   @override
@@ -57,7 +42,10 @@ class _HomePageState extends State<HomePage> {
                     final Product product = _products[index];
                     return HomeProductItem(
                       product: product,
-                      onTap: () => _onTapItem(product),
+                      onTap: () => context.pushNamed(
+                        AppRoutes.detail,
+                        arguments: product,
+                      ),
                     );
                   },
                 ),

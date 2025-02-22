@@ -1,3 +1,4 @@
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,12 +18,33 @@ class _CartPageState extends State<CartPage> {
   }) {
     StringBuffer message = StringBuffer();
     message.writeln('Olá, gostaria de fazer um pedido:');
+    message.writeln();
+
     for (var item in cartItems) {
+      message.writeln('${item.quantity}x ${item.product.name}');
       message.writeln(
-          '${item.quantity}x ${item.product.name} - R\$ ${(item.product.price * item.quantity).toStringAsFixed(2)}');
+          'Preço Unitário: R\$ ${item.product.price.toStringAsFixed(2)}');
+
+      final optionalsGrouped = item.optionalsWithQuantity;
+      if (optionalsGrouped.isNotEmpty) {
+        message.writeln('Opcionais:');
+        optionalsGrouped.forEach((optional, qty) {
+          final totalOptionalPrice = optional.price * qty;
+          message.writeln(
+              '  ${qty}x ${optional.name} - R\$ ${totalOptionalPrice.toStringAsFixed(2)}');
+        });
+      }
+
+      if (item.notes.isNotEmpty) {
+        message.writeln('Observações: ${item.notes}');
+      }
+
+      message.writeln(
+          'Total do Item: R\$ ${item.totalItemPrice.toStringAsFixed(2)}');
+      message.writeln();
     }
-    message.writeln('Total: R\$ ${totalCartValue.toStringAsFixed(2)}');
-    // Adicione observações se necessário
+
+    message.writeln('Valor Total: R\$ ${totalCartValue.toStringAsFixed(2)}');
     return message.toString();
   }
 
@@ -56,36 +78,66 @@ class _CartPageState extends State<CartPage> {
                   itemCount: cartItems.length,
                   itemBuilder: (context, index) {
                     final item = cartItems[index];
-                    double totalItemPrice = item.product.price * item.quantity;
+                    final optionalsGrouped = item.optionalsWithQuantity;
+                    double totalItemPrice = item.totalItemPrice;
 
                     return Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 32, vertical: 16),
-                      child: Row(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(item.product.name),
-                                Text(
-                                    'Quantidade: ${item.quantity} x R\$ ${item.product.price.toStringAsFixed(2)}'),
-                              ],
-                            ),
-                          ),
+                          // Cabeçalho do item
                           Row(
                             children: [
+                              Expanded(
+                                child: Text(
+                                  '${item.quantity}x ${item.product.name}',
+                                  style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
                               Text(
-                                  'Total: R\$ ${totalItemPrice.toStringAsFixed(2)}'),
+                                'Total: R\$ ${totalItemPrice.toStringAsFixed(2)}',
+                                style: const TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              ),
                               IconButton(
                                 onPressed: () => cartCubit.removeFromCart(item),
                                 icon: Icon(
                                   Icons.delete_outline,
-                                  color: context.colorScheme.error,
+                                  color: Theme.of(context).colorScheme.error,
                                 ),
                               ),
                             ],
-                          )
+                          ),
+                          Text(
+                              'Preço Unitário: R\$ ${item.product.price.toStringAsFixed(2)}'),
+                          if (optionalsGrouped.isNotEmpty)
+                            const Padding(
+                              padding: EdgeInsets.only(top: 8.0),
+                              child: Text('Adicionais:'),
+                            ),
+                          ...optionalsGrouped.entries.map((entry) {
+                            final optional = entry.key;
+                            final qty = entry.value;
+                            final totalOptionalPrice = optional.price * qty;
+                            return Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 16.0, top: 4.0),
+                              child: Text(
+                                '${qty}x ${optional.name} - R\$ ${totalOptionalPrice.toStringAsFixed(2)}',
+                              ),
+                            );
+                          }),
+                          // Observações, se houver
+                          if (item.notes.isNotEmpty)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text('Observações: ${item.notes}'),
+                            ),
+                          const Divider(),
                         ],
                       ),
                     );

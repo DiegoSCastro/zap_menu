@@ -13,6 +13,10 @@ _$CartItemImpl _$$CartItemImplFromJson(Map<String, dynamic> json) =>
           : Product.fromJson(json['product'] as Map<String, dynamic>),
       notes: json['notes'] as String? ?? '',
       quantity: (json['quantity'] as num?)?.toInt() ?? 1,
+      selectedOptionals: (json['selectedOptionals'] as List<dynamic>?)
+              ?.map((e) => OptionalItem.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$CartItemImplToJson(_$CartItemImpl instance) =>
@@ -20,4 +24,5 @@ Map<String, dynamic> _$$CartItemImplToJson(_$CartItemImpl instance) =>
       'product': instance.product,
       'notes': instance.notes,
       'quantity': instance.quantity,
+      'selectedOptionals': instance.selectedOptionals,
     };

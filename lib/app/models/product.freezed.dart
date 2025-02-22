@@ -25,6 +25,7 @@ mixin _$Product {
   String get sideDishes => throw _privateConstructorUsedError;
   String get imagePath => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
+  List<OptionalItem> get optionals => throw _privateConstructorUsedError;
 
   /// Serializes this Product to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,7 +46,8 @@ abstract class $ProductCopyWith<$Res> {
       String description,
       String sideDishes,
       String imagePath,
-      double price});
+      double price,
+      List<OptionalItem> optionals});
 }
 
 /// @nodoc
@@ -68,6 +70,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? sideDishes = null,
     Object? imagePath = null,
     Object? price = null,
+    Object? optionals = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -90,6 +93,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      optionals: null == optionals
+          ? _value.optionals
+          : optionals // ignore: cast_nullable_to_non_nullable
+              as List<OptionalItem>,
     ) as $Val);
   }
 }
@@ -106,7 +113,8 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String description,
       String sideDishes,
       String imagePath,
-      double price});
+      double price,
+      List<OptionalItem> optionals});
 }
 
 /// @nodoc
@@ -127,6 +135,7 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? sideDishes = null,
     Object? imagePath = null,
     Object? price = null,
+    Object? optionals = null,
   }) {
     return _then(_$ProductImpl(
       name: null == name
@@ -149,6 +158,10 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
+      optionals: null == optionals
+          ? _value._optionals
+          : optionals // ignore: cast_nullable_to_non_nullable
+              as List<OptionalItem>,
     ));
   }
 }
@@ -161,8 +174,10 @@ class _$ProductImpl extends _Product {
       this.description = '',
       this.sideDishes = '',
       this.imagePath = '',
-      this.price = 0.0})
-      : super._();
+      this.price = 0.0,
+      final List<OptionalItem> optionals = const []})
+      : _optionals = optionals,
+        super._();
 
   factory _$ProductImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductImplFromJson(json);
@@ -182,10 +197,18 @@ class _$ProductImpl extends _Product {
   @override
   @JsonKey()
   final double price;
+  final List<OptionalItem> _optionals;
+  @override
+  @JsonKey()
+  List<OptionalItem> get optionals {
+    if (_optionals is EqualUnmodifiableListView) return _optionals;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_optionals);
+  }
 
   @override
   String toString() {
-    return 'Product(name: $name, description: $description, sideDishes: $sideDishes, imagePath: $imagePath, price: $price)';
+    return 'Product(name: $name, description: $description, sideDishes: $sideDishes, imagePath: $imagePath, price: $price, optionals: $optionals)';
   }
 
   @override
@@ -200,13 +223,15 @@ class _$ProductImpl extends _Product {
                 other.sideDishes == sideDishes) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath) &&
-            (identical(other.price, price) || other.price == price));
+            (identical(other.price, price) || other.price == price) &&
+            const DeepCollectionEquality()
+                .equals(other._optionals, _optionals));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, description, sideDishes, imagePath, price);
+  int get hashCode => Object.hash(runtimeType, name, description, sideDishes,
+      imagePath, price, const DeepCollectionEquality().hash(_optionals));
 
   /// Create a copy of Product
   /// with the given fields replaced by the non-null parameter values.
@@ -230,7 +255,8 @@ abstract class _Product extends Product {
       final String description,
       final String sideDishes,
       final String imagePath,
-      final double price}) = _$ProductImpl;
+      final double price,
+      final List<OptionalItem> optionals}) = _$ProductImpl;
   const _Product._() : super._();
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$ProductImpl.fromJson;
@@ -245,6 +271,8 @@ abstract class _Product extends Product {
   String get imagePath;
   @override
   double get price;
+  @override
+  List<OptionalItem> get optionals;
 
   /// Create a copy of Product
   /// with the given fields replaced by the non-null parameter values.

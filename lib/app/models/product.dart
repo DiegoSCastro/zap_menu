@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../app.dart';
+
 part 'product.freezed.dart';
 part 'product.g.dart';
 
@@ -13,6 +15,7 @@ class Product with _$Product {
     @Default('') String sideDishes,
     @Default('') String imagePath,
     @Default(0.0) double price,
+    @Default([]) List<OptionalItem> optionals,
   }) = _Product;
   const Product._();
 
@@ -22,13 +25,24 @@ class Product with _$Product {
 
   static const List<Product> products = [
     Product(
-      name: 'Bife',
-      description:
-          'Bife suculento e bem temperado, preparado na chapa para manter o sabor e maciez.',
-      price: 17.0,
-      sideDishes: 'Arroz, feijão e salada do dia',
-      imagePath: 'assets/bife.webp',
-    ),
+        name: 'Bife',
+        description:
+            'Bife suculento e bem temperado, preparado na chapa para manter o sabor e maciez.',
+        price: 17.0,
+        sideDishes: 'Arroz, feijão e salada do dia.',
+        imagePath: 'assets/bife.webp',
+        optionals: [
+          OptionalItem(
+            name: 'Arroz',
+            price: 4.00,
+            description: '+ 300 gramas de arroz',
+          ),
+          OptionalItem(
+            name: 'Carne',
+            price: 6.00,
+            description: '+ 100 gramas de bife',
+          ),
+        ]),
     Product(
       name: 'Bife Acebolado',
       description:

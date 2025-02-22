@@ -13,6 +13,10 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       sideDishes: json['sideDishes'] as String? ?? '',
       imagePath: json['imagePath'] as String? ?? '',
       price: (json['price'] as num?)?.toDouble() ?? 0.0,
+      optionals: (json['optionals'] as List<dynamic>?)
+              ?.map((e) => OptionalItem.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
@@ -22,4 +26,5 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
       'sideDishes': instance.sideDishes,
       'imagePath': instance.imagePath,
       'price': instance.price,
+      'optionals': instance.optionals,
     };
