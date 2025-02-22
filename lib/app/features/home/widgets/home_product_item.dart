@@ -21,6 +21,9 @@ class HomeProductItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
                     product.imagePath,
+                    fit: BoxFit.cover,
+                    height: 80,
+                    width: 80,
                   ),
                 ),
                 Expanded(

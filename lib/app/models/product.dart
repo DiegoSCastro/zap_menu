@@ -26,11 +26,113 @@ class Product with _$Product {
   static const List<Product> products = [
     Product(
       name: 'Hot Dog Simples',
-      price: 15.0,
+      price: 12.0,
       ingredients:
-          'Pão 17 cm, salsicha, molho de tomate, maionese, milho, batata.',
+          'Pão 17 cm, salsicha, molho de tomate, maionese, milho, batata palha.',
       description: 'Hot Dog Simples, mas delicioso!',
       imagePath: 'assets/hotdog.jpeg',
+    ),
+    Product(
+      name: 'Hot Dog Duplo',
+      price: 15.0,
+      ingredients:
+          'Pão 17 cm, 2 salsichas, molho de tomate, maionese, milho, batata palha.',
+      description: 'Hot Dog Simples, mas delicioso!',
+      imagePath: 'assets/hotdog.jpeg',
+    ),
+    Product(
+      name: 'Hot Dog Triplo',
+      price: 18.0,
+      ingredients:
+          'Pão 17 cm, 3 salsichas, molho de tomate, maionese, milho, batata palha.',
+      description: 'Hot Dog Simples, mas delicioso!',
+      imagePath: 'assets/hotdog.jpeg',
+    ),
+    Product(
+      name: 'Hot Dog Paulista',
+      price: 23.0,
+      ingredients:
+          'Pão 17 cm, 2 salsichas, molho de tomate, maionese, purê de batata, vinagrete, milho, ervilha, batata palha.',
+      description: 'Hot Dog Simples, mas delicioso!',
+      imagePath: 'assets/hotdog.jpeg',
+    ),
+    Product(
+      name: 'Hot Dog Gaúcho',
+      price: 24.0,
+      ingredients:
+          'Pão 17 cm, 2 salsichas, molho de tomate, maionese, ervilha, parmesão, batata palha.',
+      description: 'Hot Dog Simples, mas delicioso!',
+      imagePath: 'assets/hotdog.jpeg',
+    ),
+    Product(
+      name: 'Hot Dog Cuiabano',
+      price: 24.0,
+      ingredients:
+          'Pão 17 cm, 2 salsichas, molho de tomate, maionese, calabresa picada, milho, batata palha.',
+      description: 'Hot Dog Simples, mas delicioso!',
+      imagePath: 'assets/hotdog.jpeg',
+    ),
+    Product(
+      name: 'Hot Dog Cremosinho',
+      price: 25.0,
+      ingredients:
+          'Pão 17 cm, 2 salsichas, molho de tomate, maionese, requeijão cremoso, milho, batata palha.',
+      description: 'Hot Dog Simples, mas delicioso!',
+      imagePath: 'assets/hotdog.jpeg',
+    ),
+    Product(
+      name: 'Hot Dog Mineirinho',
+      price: 25.0,
+      ingredients:
+          'Pão 17 cm, 2 salsichas, molho de tomate, maionese, mussarela, queijo caipira, milho, batata palha.',
+      description: 'Hot Dog Simples, mas delicioso!',
+      imagePath: 'assets/hotdog.jpeg',
+    ),
+    Product(
+      name: 'Hot Dog MS',
+      price: 25.0,
+      ingredients:
+          'Pão 17 cm, 2 salsichas, molho de tomate, maionese, mussarela, bacon crocante, milho, batata palha.',
+      description: 'Hot Dog Simples, mas delicioso!',
+      imagePath: 'assets/hotdog.jpeg',
+    ),
+    Product(
+      name: 'Jantinha',
+      price: 15.0,
+      ingredients:
+          'Espetinho de carne,  mandioca e farofa. (Adicionar observações se quiser trocar por espetinho de frango)',
+      description: 'Jantinha simples, uma refeição completa e saborosa.',
+      imagePath: 'assets/jantinha.jpg',
+    ),
+    Product(
+      name: 'Jantinha Completa',
+      price: 17.0,
+      ingredients:
+          'Espetinho de carne, arroz, mandioca, arroz, vinagrete e farofa. (Adicionar observações se quiser trocar por espetinho de frango)',
+      description: 'Jantinha simples, uma refeição completa e saborosa.',
+      imagePath: 'assets/jantinha.jpg',
+    ),
+    Product(
+      name: 'Jantinha Completa 2.0',
+      price: 22.0,
+      ingredients:
+          '2 Espetinho de carne, arroz, mandioca, arroz, vinagrete e farofa. (Adicionar observações se quiser trocar por espetinho de frango)',
+      description: 'Jantinha simples, uma refeição completa e saborosa.',
+      imagePath: 'assets/jantinha.jpg',
+    ),
+    Product(
+      name: 'Espetinho Carne',
+      price: 8.0,
+      ingredients: 'Espetinho de carne bovina',
+      description: 'Espeto delicioso',
+      imagePath: 'assets/carne.jpg',
+    ),
+    Product(
+      name: 'Espetinho Frango',
+      price: 8.0,
+      ingredients: 'Espetinho de frango',
+      description: 'Espeto delicioso',
+      imagePath: 'assets/frango.jpg',
     ),
   ];
 

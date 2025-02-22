@@ -38,6 +38,7 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                 child: ListView.builder(
                   itemCount: _products.length,
+                  padding: const EdgeInsets.only(bottom: 80),
                   itemBuilder: (context, index) {
                     final Product product = _products[index];
                     return HomeProductItem(
